@@ -19,6 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       rating: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       description: {
@@ -30,6 +31,15 @@ module.exports = {
           model: 'Users',
           key: 'id',
         },
+        onDelete: 'cascade',
+      },
+      start: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      end: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
