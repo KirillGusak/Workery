@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.STRING,
     description: DataTypes.STRING,
     author: DataTypes.STRING,
-    user_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Routes',
