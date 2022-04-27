@@ -7,7 +7,8 @@ require('dotenv').config();
 
 const indexRouter = require('./src/routes/indexRouter');
 const mainRouter = require('./src/routes/mainRouter');
-const addRoute = require('./src/routes/addRouteRouter');
+const addRouter = require('./src/routes/addRouteRouter');
+const regRouter = require('./src/routes/registration');
 
 const app = express();
 
@@ -23,14 +24,14 @@ app.use(session({
   resave: false,
   store: new FileStore(),
   saveUninitialized: false,
-  name: 'cookie',
+  name: 'sid',
   cookie: { httpOnly: true },
 }));
 
 app.use('/', indexRouter);
 app.use('/', mainRouter);
-app.use('/', addRoute);
-
+app.use('/', addRouter);
+app.use('/', regRouter);
 
 const PORT = 3000;
 
