@@ -8,24 +8,26 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       city: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       length: {
         type: Sequelize.STRING,
       },
       rating: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       author: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         references: {
-          model: 'Routes',
+          model: 'Users',
           key: 'id',
         },
       },
