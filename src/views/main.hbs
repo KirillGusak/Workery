@@ -1,0 +1,9 @@
+<main>
+  <ul>
+    {{#each routes}}
+    <li>
+      <a href="/route/{{id}}">{{this.title}}, {{this.city}},{{this.length}}, {{rating}} *</a>
+    </li>
+    {{/each}}
+  </ul>
+</main>
