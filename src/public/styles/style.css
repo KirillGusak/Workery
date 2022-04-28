@@ -1,5 +1,5 @@
 body {
-  height: 100vh; 
+  height: 100vh;
 }
 
 header {
@@ -42,4 +42,10 @@ header {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+footer {
+  width: 100vmax;
+  position: fixed;
+  bottom: 2% !important;
 }

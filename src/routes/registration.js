@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Route } = require('../../db/models');
+const checkAuth = require('../middlewares/allChecks');
 
 router.get('/signup', (req, res) => {
   res.render('signup');
@@ -51,7 +52,7 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', checkAuth, async (req, res) => {
   const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
 
   console.log(req.session.id, 'eeeeeeeeeee');
