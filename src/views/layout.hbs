@@ -27,9 +27,9 @@
 
 
         <div class="col-md-3 text-middle">
-          {{!-- {{#if userId}} --}}
+          {{#if userId}}
           <a href="http://localhost:3000/profile" type="button" class="btn btn-primary">Profile</a>
-          {{!-- {{/if}} --}}
+          {{/if}}
           <a href="http://localhost:3000/main" type="button" class="btn btn-primary">FAQs</a>
           <a href="http://localhost:3000/about" type="button" class="btn btn-primary">About</a>
           
@@ -38,12 +38,12 @@
 
 
         <div class="col-md-3 text-end">
-          {{!-- {{#if userId}} --}}
+          {{#if userId}}
           <a href="http://localhost:3000/logout" type="button" class="btn btn-primary">Logout</a>
-          {{!-- {{else}} --}}
+          {{else}}
           <a href="http://localhost:3000/signin" type="button" class="btn btn-primary">Login</a>
           <a href="http://localhost:3000/signup" type="button" class="btn btn-primary">Sign-up</a>
-          {{!-- {{/if}} --}}
+          {{/if}}
         </div>
       </header>
     </div>
