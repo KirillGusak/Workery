@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-
+const checkAuth = require('./src/middlewares/allChecks');
 require('dotenv').config();
 
 const indexRouter = require('./src/routes/indexRouter');
@@ -28,6 +28,10 @@ app.use(session({
   name: 'sid',
   cookie: { httpOnly: true },
 }));
+
+app.use((req, res, next) => {
+  res.locals.userId = req.session?.userId;
+});
 
 app.use('/', indexRouter);
 app.use('/', mainRouter);
