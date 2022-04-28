@@ -1,14 +1,17 @@
 /* body {
   /* background-color: blue; 
-}*/ 
+}*/
 
 header {
   height: fit-content;
+  background-color: #0C73FE;
+  color: #ffff;
 }
 
 #logo {
   width: 5em;
-} 
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
