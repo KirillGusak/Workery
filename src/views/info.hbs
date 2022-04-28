@@ -1,10 +1,23 @@
-<div>
-{{this.route.id}},{{this.route.title}},{{this.route.description}},{{this.route.city}},
-</div>
-<div>
-   {{#each comments}}
-    <li>
-      {{this.body}}
-    </li>
-    {{/each}}
+
+<div class ="conteiner">
+  <div id='map' class='map'></div>
+      <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
+      <script src="/application/map.js"></script>
+  <div>
+    <p>
+      Rout "{{this.route.title}}" location: {{this.route.city}},
+    </p>
+  </div>
+  <div class="description">
+    {{this.route.description}},
+  </div>
+
+  </div>
+  <div class="comments">
+    {{#each comments}}
+      <li>
+        {{this.body}}
+      </li>
+      {{/each}}
+  </div>
 </div>

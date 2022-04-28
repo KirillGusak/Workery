@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  background-color: RGB(242, 242, 242);
 }
 
 header {
@@ -16,6 +17,9 @@ header {
   border-color: white
 }
 
+/* .form-signin {
+  background-color: 242, 242, 242;
+} */
 
 .form-signin {
   width: 100%;
@@ -43,16 +47,15 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-<<<<<<< HEAD
 
 footer {
-  width: 100vmax;
+  width: 90%;
   position: fixed;
   bottom: 2% !important;
-=======
+}
+
 .map{
   width: 500px;
   height: 500px;
   /* background-color: blue; */
->>>>>>> a83afada28701867a469c2227f7efd711b7124b9
 }
