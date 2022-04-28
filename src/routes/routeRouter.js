@@ -1,13 +1,14 @@
 const router = require('express').Router();
-const { Route } = require('../../db/models');
+const { Route, Comment, User } = require('../../db/models');
 
 router.get('/route/:id', async (req, res) => {
   const routeId = req.params.id;
-  console.log(routeId);
-
   try {
     const route = await Route.findOne({ where: { id: routeId } });
-    res.render('info', { route });
+    const comments = await Comment.findAll({ where: { route_id: routeId } });
+    console.log(route);
+    console.log(comments);
+    res.render('info', { route, comments });
   } catch (error) {
     console.log(error);
   }
