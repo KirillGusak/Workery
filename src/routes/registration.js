@@ -43,7 +43,7 @@ router.post('/signin', async (req, res) => {
       req.session.name = user.name;
       res.redirect('profile');
     } else {
-      res.render('error', { message: 'Can not find User' });
+      res.render('error', { error: 'Can not find User' });
     }
   } catch (error) {
     console.log(error);
@@ -51,19 +51,21 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-  // const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
+  const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
 
-  // console.log(req.session.id, 'eeeeeeeeeee');
-  // console.log(allRoutes, 'nooooo');
+  console.log(req.session.id, 'eeeeeeeeeee');
+  console.log(allRoutes, 'nooooo');
 
   res.render('profile', {
-    email: req.session.email, name: req.session.name, id: req.session.userId,
+    email: req.session.email, name: req.session.name, id: req.session.userId, allRoutes,
   });
 });
 
 router.get('/logout', (req, res) => {
+  console.log('qweqweqweqwe');
+
   req.session.destroy();
-  res.clearCookie();
+  res.clearCookie('sid');
   res.redirect('/');
 });
 
