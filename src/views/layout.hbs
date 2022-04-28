@@ -15,39 +15,38 @@
 
 <body>
   <header>
-      <div class="container">
-        <header
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            
-            </svg>
-            <img name="logo" id="logo" src="/pictures/logo/bike3.png" alt="logo">
-            {{!-- <span class="fs-4">Bike routes</span> --}}
-          </a>
-      
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            {{!-- <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li> --}}
-            {{!-- <li><a href="#" class="nav-link px-2 link-dark">Profile</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Routes</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li> --}}
-            <li><a href="http://localhost:3000/profile" type="button" class="btn btn-primary">Profile</a></li>
-            <li><a href="http://localhost:3000/routes" type="button" class="btn btn-primary">Routes</a></li>
-            <li><a href="http://localhost:3000/faqs" type="button" class="btn btn-primary">FAQs</a></li>
-            <li><a href="http://localhost:3000/about" type="button" class="btn btn-primary">About</a></li>
-          </ul>
-      
-          <div class="col-md-3 text-end">
-            {{!-- {{#if userId}} --}}
-            {{!-- <a href="http://localhost:3000/signin" type="button" class="btn btn-outline-primary me-2">Logout</a> --}}
-            {{!-- {{else}} --}}
-            {{!-- <a href="http://localhost:3000/signin" type="button" class="btn btn-outline-primary me-2">Login</a> --}}
-            <a href="http://localhost:3000/signin" type="button" class="btn btn-primary">Login</a>
-            <a href="http://localhost:3000/main" type="button" class="btn btn-primary">Logout</a>
-            <a href="http://localhost:3000/signup" type="button" class="btn btn-primary">Sign-up</a>
-            {{!-- {{/if}} --}}
-          </div>
-        </header>
-      </div>
+    <div class="container">
+      <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+
+          </svg>
+          <img name="logo" id="logo" src="/pictures/logo/bike3.png" alt="logo">
+          {{!-- <span class="fs-4">Bike routes</span> --}}
+        </a>
+
+   
+        <div class="col-md-3 text-middle">
+
+          <a href="http://localhost:3000/profile" type="button" class="btn btn-primary">Profile</a>
+          <a href="http://localhost:3000/routes" type="button" class="btn btn-primary">Routes</a>
+          <a href="http://localhost:3000/main" type="button" class="btn btn-primary">FAQs</a>
+          <a href="http://localhost:3000/about" type="button" class="btn btn-primary">About</a>
+
+        </div>
+
+
+        <div class="col-md-3 text-end">
+          {{!-- {{#if userId}} --}}
+
+          {{!-- {{else}} --}}
+          <a href="http://localhost:3000/signin" type="button" class="btn btn-primary">Login</a>
+          <a href="http://localhost:3000/logout" type="button" class="btn btn-primary">Logout</a>
+          <a href="http://localhost:3000/signup" type="button" class="btn btn-primary">Sign-up</a>
+          {{!-- {{/if}} --}}
+        </div>
+      </header>
+    </div>
   </header>
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -67,6 +66,13 @@
     crossorigin="anonymous"></script>
 
   {{{body}}}
+<div class="container">
+  <footer class="mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
+    <p class="text-center text-muted mb-0">&copy; 2021 Elbrus, Inc</p>
+  </footer>
+</div>
+
 </body>
 
 </html>
