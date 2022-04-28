@@ -25,7 +25,7 @@ module.exports = {
       title: 'Arbat',
       city: 'Moscow',
       length: '3.0 km',
-      author: 4,
+      author: 2,
       rating: 2,
       description: 'bad road',
       start: 'arbat',
