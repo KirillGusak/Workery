@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-color: RGB(242, 242, 242);
+  background-color: RGB(241, 241, 241);
 }
 
 header {
@@ -47,16 +47,15 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-<<<<<<< HEAD
 
 footer {
   width: 90%;
   position: fixed;
   bottom: 2% !important;
-=======
-.map{
+}
+
+.map {
   width: 500px;
   height: 500px;
   /* background-color: blue; */
->>>>>>> a83afada28701867a469c2227f7efd711b7124b9
 }
