@@ -1,14 +1,22 @@
-/* body {
-  /* background-color: blue; 
-}*/ 
+body {
+  height: 100vh; 
+}
 
 header {
   height: fit-content;
+  background-color: #0C73FE;
+  color: #ffff;
 }
 
 #logo {
   width: 5em;
-} 
+}
+
+.btn-primary {
+  border-color: white
+}
+
+
 .form-signin {
   width: 100%;
   max-width: 330px;
