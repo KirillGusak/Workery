@@ -1,5 +1,5 @@
 <main class="form-signin">
-  <form action="/addroute" method="post">
+  <form action="/addRoute/Route" method="post">
     {{!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
     <center>
       <h1 style="padding-top: 50%" ; class="h3 mb-3 fw-normal">Add  new route</h1>
@@ -7,26 +7,27 @@
     </center>
 
     <div class="form-floating">
-      <input type="email" name="title" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" name="title" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Route title</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="city" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="text" name="city" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">City</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="description" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="text" name="description" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Description</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="start" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="text" name="start" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Route start point
       </label>
     </div>
     <div class="form-floating">
-      <input type="password" name="end" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="text" name="end" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Route end point</label>
     </div>
+    <input type="hidden" name="rating" value="0">
 
     </div>
 

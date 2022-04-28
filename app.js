@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const checkAuth = require('./src/middlewares/allChecks');
+// const checkAuth = require('./src/middlewares/allChecks');
 require('dotenv').config();
 
 const indexRouter = require('./src/routes/indexRouter');
