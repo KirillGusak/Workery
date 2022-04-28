@@ -1,4 +1,4 @@
-function init() {
+async function init(obj) {
   // Задаём точки мультимаршрута.
   const pointA = 'красная площадь';
   const pointB = 'тверская 7';
@@ -8,8 +8,8 @@ function init() {
        */
   const multiRoute = new ymaps.multiRouter.MultiRoute({
     referencePoints: [
-      pointA,
-      pointB,
+      obj.start,
+      obj.end,
     ],
     params: {
       // Тип маршрутизации - пешеходная маршрутизация.
@@ -48,4 +48,4 @@ function init() {
   myMap.geoObjects.add(multiRoute);
 }
 
-ymaps.ready(init);
+// ymaps.ready(init);

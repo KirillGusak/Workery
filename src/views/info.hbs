@@ -1,23 +1,24 @@
-
-<div class ="conteiner">
+<div class="conteiner">
   <div id='map' class='map'></div>
-      <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
-      <script src="/application/map.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
+  <script src="/application/map.js"></script>
+  <script defer src="/application/client.js"></script>
   <div>
-    <p>
-      Rout "{{this.route.title}}" location: {{this.route.city}},
+    <p id="bla" data-start="{{this.route.start}}" data-end="{{this.route.end}}">
+      Route "{{this.route.title}}" location: {{this.route.city}},
+      from {{this.route.start}} to {{this.route.end}}
     </p>
   </div>
   <div class="description">
     {{this.route.description}},
   </div>
 
-  </div>
-  <div class="comments">
-    {{#each comments}}
-      <li>
-        {{this.body}}
-      </li>
-      {{/each}}
-  </div>
+</div>
+<div class="comments">
+  {{#each comments}}
+  <li>
+    {{this.body}}
+  </li>
+  {{/each}}
+</div>
 </div>
