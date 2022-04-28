@@ -1,10 +1,11 @@
 <div>
 {{this.route.id}},{{this.route.title}},{{this.route.description}},{{this.route.city}},
 </div>
-<div>
+<div class="route-list">
    {{#each comments}}
     <li>
       {{this.body}}
     </li>
     {{/each}}
+    <button type = "button" data-id='{{this.id}}'>qwertyu</button>
 </div>

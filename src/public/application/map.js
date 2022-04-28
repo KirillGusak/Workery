@@ -1,7 +1,8 @@
-function init() {
+async function init() {
   // Задаём точки мультимаршрута.
   const pointA = 'красная площадь';
   const pointB = 'тверская 7';
+
   /**
        * Создаем мультимаршрут.
        * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
@@ -13,13 +14,14 @@ function init() {
     ],
     params: {
       // Тип маршрутизации - пешеходная маршрутизация.
-      routingMode: 'pedestrian',
+      routingMode: 'bicycle',
     },
   }, {
     // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
     boundsAutoApply: true,
+    checkZoomRange: true,
   });
-
+  multiRoute.editor.start();
   // Создаем кнопку.
   const changePointsButton = new ymaps.control.Button({
     data: { content: 'Поменять местами точки А и В' },
