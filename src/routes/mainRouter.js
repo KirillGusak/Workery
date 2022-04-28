@@ -1,10 +1,5 @@
-const { Route } = require('express');
-
 const router = require('express').Router();
-
-// router.get('/main', (req, res) => {
-//   res.render('main');
-// });
+const { Route } = require('../../db/models');
 
 router.get('/main', async (req, res) => {
   let routes;
