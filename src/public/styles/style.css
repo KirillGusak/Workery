@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  background-color: RGB(242, 242, 242);
 }
 
 header {
@@ -16,6 +17,9 @@ header {
   border-color: white
 }
 
+/* .form-signin {
+  background-color: 242, 242, 242;
+} */
 
 .form-signin {
   width: 100%;
@@ -45,7 +49,7 @@ header {
 }
 
 footer {
-  width: 100vmax;
+  width: 90%;
   position: fixed;
   bottom: 2% !important;
 }

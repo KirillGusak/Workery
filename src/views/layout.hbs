@@ -27,21 +27,21 @@
 
 
         <div class="col-md-3 text-middle">
-
+          {{!-- {{#if userId}} --}}
           <a href="http://localhost:3000/profile" type="button" class="btn btn-primary">Profile</a>
-          <a href="http://localhost:3000/routes" type="button" class="btn btn-primary">Routes</a>
+          {{!-- {{/if}} --}}
           <a href="http://localhost:3000/main" type="button" class="btn btn-primary">FAQs</a>
           <a href="http://localhost:3000/about" type="button" class="btn btn-primary">About</a>
+          
 
         </div>
 
 
         <div class="col-md-3 text-end">
           {{!-- {{#if userId}} --}}
-
+          <a href="http://localhost:3000/logout" type="button" class="btn btn-primary">Logout</a>
           {{!-- {{else}} --}}
           <a href="http://localhost:3000/signin" type="button" class="btn btn-primary">Login</a>
-          <a href="http://localhost:3000/logout" type="button" class="btn btn-primary">Logout</a>
           <a href="http://localhost:3000/signup" type="button" class="btn btn-primary">Sign-up</a>
           {{!-- {{/if}} --}}
         </div>
@@ -67,10 +67,10 @@
 
   {{{body}}}
   <div class="container">
-    <footer class="py-3 my-4 justify-content-center">
+    <footer class="justify-content-center">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
       <center>
-        <p class="text-center text-muted mb-0">&copy; 2021 Elbrus, Inc</p>
+        <p class="text-center text-muted mb-0">&copy; 2022 Elbrus, Inc</p>
       </center>
     </footer>
   </div>
