@@ -19,9 +19,20 @@ async function init() {
   }, {
     // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
     boundsAutoApply: true,
-    checkZoomRange: true,
+    // убрать метки над путевыми точками
+    // wayPointVisible: false,
   });
-  multiRoute.editor.start();
+  multiRoute.editor.start(
+    // {
+    //   // При включении опции addWayPoints пользователи смогут создавать
+    //     // путевые точки по клику на карте.
+    //     addWayPoints: true,
+    //     // При включении опции removeWayPoints пользователи смогут удалять
+    //     // путевые точки.
+    //     // Для удаления точки нужно дважды кликнуть по ней.
+    //     removeWayPoints: true,
+    // }
+  );
   // Создаем кнопку.
   const changePointsButton = new ymaps.control.Button({
     data: { content: 'Поменять местами точки А и В' },
