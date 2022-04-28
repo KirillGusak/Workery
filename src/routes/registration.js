@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Route } = require('../../db/models');
-const user = require('../../db/models/user');
 
 router.get('/signup', (req, res) => {
   res.render('signup');
@@ -52,17 +51,17 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-  const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
+  // const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
 
   // console.log(req.session.id, 'eeeeeeeeeee');
   // console.log(allRoutes, 'nooooo');
 
   res.render('profile', {
-    email: req.session.email, name: req.session.name, id: req.session.userId, allRoutes,
+    email: req.session.email, name: req.session.name, id: req.session.userId,
   });
 });
 
-router.get('logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie();
   res.redirect('/');
