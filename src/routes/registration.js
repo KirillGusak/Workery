@@ -33,6 +33,7 @@ router.get('/signin', (req, res) => {
 });
 router.post('/signin', async (req, res) => {
   try {
+    console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
     const passwordMatch = await bcrypt.compare(password, user?.password);
