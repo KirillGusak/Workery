@@ -28,19 +28,22 @@
     {{/each}}
 </div>
 
+
+<form name="commentForm">
 <div class="row">
 <div class="col">
 <div class="m-3 mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-</div>
 
+  {{!-- //передать рутАЙД  через {{}}--}}
+  <input data-inputtype='{{this.route.id}}' class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+</div>
+</div>
 <div class="col"></div>
 </div>
 <button id="commentButton" name="commentButton" type="sumbit" class="m-3 btn btn-info">add comment</button>
 </div>
-
+</form>
 
 
 

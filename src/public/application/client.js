@@ -1,5 +1,9 @@
-const commentButton = document.querySelector('#commentButton');
+/* eslint-disable camelcase */
+const { commentForm } = document.forms;
+// const commentButton = document.querySelector('#commentButton');
 const routeList = document.querySelector('.list-group');
+console.log(routeList);
+
 console.log(routeList);
 
 routeList.addEventListener('click', async (e) => {
@@ -15,6 +19,23 @@ routeList.addEventListener('click', async (e) => {
   }
 });
 
-commentButton.addEventListener('submit', async (event) => {
+console.log(commentForm);
+
+commentForm.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  const inputedText = document.querySelector('[data-inputtype]');
+  const route_id = inputedText.dataset.inputtype;
+
+  console.log(inputedText);
+  // это  будет рут айди
+  // user id iz beka взять, отсюла не передавать
+
+  const response = await fetch(`/route/${route_id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ body: inputedText.value, route_id }),
+  });
 });
