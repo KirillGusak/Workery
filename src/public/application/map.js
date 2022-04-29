@@ -1,4 +1,4 @@
-async function init(obj) {
+async function init() {
   // Задаём точки мультимаршрута.
   const pointA = 'красная площадь';
   const pointB = 'тверская 7';
@@ -9,8 +9,8 @@ async function init(obj) {
        */
   const multiRoute = new ymaps.multiRouter.MultiRoute({
     referencePoints: [
-      obj.start,
-      obj.end,
+      pointA,
+      pointB,
     ],
     params: {
       // Тип маршрутизации - пешеходная маршрутизация.
@@ -52,7 +52,7 @@ async function init(obj) {
   const myMap = new ymaps.Map('map', {
     center: [55.739625, 37.54120],
     zoom: 12,
-    controls: [changePointsButton],
+    controls: ['zoomControl', 'searchControl', 'typeSelector', 'fullscreenControl', 'routeButtonControl'], // ['smallMapDefaultSet']
   }, {
     buttonMaxWidth: 300,
   });
