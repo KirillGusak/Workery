@@ -39,8 +39,10 @@
 
         {{!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"> --}}
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            {{#if userId}}
             <li><a href="http://localhost:3000/profile" class="nav-link px-2 text-white">Profile</a></li>
             <li><a href="http://localhost:3000/addroute" class="nav-link px-2 text-white">Add route</a></li>
+            {{/if}}
             <li><a href="http://localhost:3000/main" class="nav-link px-2 text-white">FAQs</a></li>
             <li><a href="http://localhost:3000/about" class="nav-link px-2 text-white">About</a></li>
 

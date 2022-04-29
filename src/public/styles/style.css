@@ -10,7 +10,7 @@ header {
 }
 
 #logo {
-  width: 5em;
+  width: 4em;
 }
 
 .btn-primary {
@@ -50,8 +50,8 @@ header {
 
 footer {
   width: 90%;
-  position:relative;
-  bottom: 2% !important;
+  position: fixed;
+  bottom: 0% !important;
 }
 
 .map{

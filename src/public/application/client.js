@@ -1,5 +1,6 @@
 const commentButton = document.querySelector('#commentButton');
 const routeList = document.querySelector('.list-group');
+console.log(routeList);
 
 routeList.addEventListener('click', async (e) => {
   console.log(e.target.tagName);
