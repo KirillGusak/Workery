@@ -1,4 +1,4 @@
-async function init() {
+function init() {
   // Задаём точки мультимаршрута.
   const pointA = 'красная площадь';
   const pointB = 'тверская 7';
@@ -56,7 +56,6 @@ async function init() {
   }, {
     buttonMaxWidth: 300,
   });
-
   // Добавляем мультимаршрут на карту.
   myMap.geoObjects.add(multiRoute);
 }

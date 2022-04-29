@@ -55,11 +55,13 @@ footer {
 }
 
 .map{
-  width: 200px;
-  height: 200px;
+  width: 600px;
+  height: 600px;
 
 }
-
+[class*= "copyrights-pane"]{
+  display: none !important;
+}
 
 .info {
   background-color: rgb(168, 204, 245);
