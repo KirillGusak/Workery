@@ -21,6 +21,7 @@ routeList.addEventListener('click', async (e) => {
     // console.log(id);
     const response = await fetch(`/addRoute/${id}`, { method: 'POST' });
     const route = await response.json();
+
     ymaps.ready(init(route));
     console.log(route);
   }
