@@ -48,7 +48,7 @@ function addSort(arr) {
 }
 
 sortBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   const response = await fetch('/main', { method: 'POST' });
   console.log(response);
   const jsonresponse = await response.json();

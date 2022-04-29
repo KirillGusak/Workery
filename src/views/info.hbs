@@ -19,17 +19,51 @@
   </div>
 </div>
 
+  <h2 class="commentWord">Comments</h2>
 
 
+<div class="row">
+<div class="col">
+      <div class="list-group">
+ <div class="commentContainer">
+       <div class="commentContainer">
+        {{#each comments}}
+        <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+
+          <img name="like" id="like" src="/pictures/logo/programmer.png" alt="like" width="32" height="32"
+            class="rounded-circle flex-shrink-0">
+<p>{{this.user_id}}</p>
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+              <p class="mb-0 opacity-75">{{this.body}}<span style="padding-left: 30px"> 
+                </span> </p>
+        
+            </div>
+            
+          </div>
+        </div>
+        {{/each}}
+        </div>
+        </div>
+         </div>
+      </div>
+          <div class="col"></div>
+    </div>
+
+
+
+
+
+{{!-- 
 <div>
   <h2 class="commentWord">Comments</h2>
   <div class="comments">
     {{#each comments}}
-    <li>
-      {{this.user_id}}, {{this.body}}
-    </li>
-    {{/each}}
+    <div>
+     <div class="userPic"> {{this.user_id}}</div> <div class="commentPic">hey{{this.body}}</div>
   </div>
+    {{/each}}
+  </div> --}}
 
   <h6 class="mb-0" data-id="{{this.route.id}}" style="cursor:pointer">{{this.route.title}}</h6>
 
@@ -39,8 +73,7 @@
         <div class="m-3 mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
 
-          {{!-- //передать рутАЙД через {{}}--}}
-          <input data-inputtype='{{this.route.id}}' class="form-control" id="exampleFormControlTextarea1"
+          <input  placeholder="share your experience!" data-inputtype='{{this.route.id}}' class="form-control toClear" id="exampleFormControlTextarea1"
             rows="3"></input>
         </div>
       </div>
