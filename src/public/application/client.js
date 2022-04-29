@@ -1,4 +1,5 @@
 const routeList = document.querySelector('.route-list');
+const commentButton = document.querySelector('#commentButton');
 
 routeList.addEventListener('click', async (e) => {
   if (e.target.tagName === 'BUTTON') {
@@ -9,4 +10,10 @@ routeList.addEventListener('click', async (e) => {
     ymaps.ready(init(route));
     console.log(route);
   }
+});
+
+commentButton.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  
 });

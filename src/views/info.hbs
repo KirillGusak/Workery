@@ -17,13 +17,30 @@
 </div>
 </div>
 
+
+
 <div> <h2 class="commentWord">Comments</h2>
+<div class="comments">
    {{#each comments}}
     <li>
-      {{this.body}}
+      {{this.user_id}}, {{this.body}}
     </li>
     {{/each}}
 </div>
+
+<div class="row">
+<div class="col">
+<div class="m-3 mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+</div>
+
+<div class="col"></div>
+</div>
+<button id="commentButton" name="commentButton" type="sumbit" class="m-3 btn btn-info">add comment</button>
+</div>
+
 
 
 

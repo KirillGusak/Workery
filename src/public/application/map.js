@@ -61,4 +61,4 @@ async function init(obj) {
   myMap.geoObjects.add(multiRoute);
 }
 
-// ymaps.ready(init);
+ymaps.ready(init);
