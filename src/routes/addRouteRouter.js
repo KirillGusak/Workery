@@ -1,6 +1,6 @@
 const { Route } = require('../../db/models');
 const router = require('express').Router();
-const { Route } = require('../../db/models');
+// const { Route } = require('../../db/models');
 
 router.get('/addRoute', (req, res) => {
   res.render('addRoute');
@@ -10,9 +10,9 @@ router.post('/addRoute/Route', async (req, res) => {
   res.redirect('/');
 });
 
-router.get('/addRoute/Route', (req, res) => {
-  res.json({ a: 'красная площадь', b: 'орджоникидзе 11' });
-});
+// router.get('/addRoute/Route', (req, res) => {
+//   res.json({ a: 'красная площадь', b: 'орджоникидзе 11' });
+// });
 
 router.post('/addRoute/Route', async (req, res) => {
   await Route.create(req.body);
