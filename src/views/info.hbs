@@ -1,24 +1,46 @@
-<div class="conteiner">
-  <div id='map' class='map'></div>
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
-  <script src="/application/map.js"></script>
-  <script defer src="/application/client.js"></script>
-  <div>
-    <p id="bla" data-start="{{this.route.start}}" data-end="{{this.route.end}}">
-      Route "{{this.route.title}}" location: {{this.route.city}},
-      from {{this.route.start}} to {{this.route.end}}
-    </p>
-  </div>
-  <div class="description">
-    {{this.route.description}},
-  </div>
+<div class="container">
+  <div class="routeMapInfo">
+    <div class="infoAboutRoute">
+<h1><b>{{this.route.title}}</b></h1>
+<h3>City: <b>{{this.route.city}}</b></h3>
+<h3>Description: <b>{{this.route.description}}</b></h3>
+<h3>Start point: <b>{{this.route.start}}</b></h3>
+<h3>End point: <b>{{this.route.end}}</b></h3>
+<h3>Author's id: <b>{{this.route.author}}</b></h3>
+<h3>Rating: <b>{{this.route.rating}}</b></h3>
+<h3>Length: <b>{{this.route.length}}</b></h3>
+</div>
 
+<div id='map' class='mapForRouteInfo'></div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
+    <script src="/application/map.js"></script>
 </div>
+</div>
+
+
+
+<div> <h2 class="commentWord">Comments</h2>
 <div class="comments">
-  {{#each comments}}
-  <li>
-    {{this.body}}
-  </li>
-  {{/each}}
+   {{#each comments}}
+    <li>
+      {{this.user_id}}, {{this.body}}
+    </li>
+    {{/each}}
+</div>
+
+<div class="row">
+<div class="col">
+<div class="m-3 mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
 </div>
+
+<div class="col"></div>
+</div>
+<button id="commentButton" name="commentButton" type="sumbit" class="m-3 btn btn-info">add comment</button>
+</div>
+
+
+
+

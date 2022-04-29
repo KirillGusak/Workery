@@ -50,7 +50,7 @@ header {
 
 footer {
   width: 90%;
-  position: fixed;
+  position:relative;
   bottom: 2% !important;
 }
 
@@ -82,4 +82,19 @@ footer {
 .textlirofile {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
+}
+
+.routeMapInfo{
+  display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.mapForRouteInfo{
+  width: 500px;
+  height: 350px;
+}
+
+.commentWord{
+  padding: 15px;
 }
