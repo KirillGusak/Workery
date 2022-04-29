@@ -14,6 +14,7 @@ function createMap(a, b) {
       // её центр и коэффициент масштабирования.
       center: [55.76, 37.64], // Москва
       zoom: 10,
+      controls: ['zoomControl', 'searchControl', 'typeSelector', 'fullscreenControl', 'routeButtonControl'],
     }, {
       searchControlProvider: 'yandex#search',
     });

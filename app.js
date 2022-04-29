@@ -10,6 +10,7 @@ const mainRouter = require('./src/routes/mainRouter');
 const addRouter = require('./src/routes/addRouteRouter');
 const regRouter = require('./src/routes/registration');
 const routeRouter = require('./src/routes/routeRouter');
+const aboutRouter = require('./src/routes/aboutRouter');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use('/', mainRouter);
 app.use('/', addRouter);
 app.use('/', regRouter);
 app.use('/', routeRouter);
+app.use('/', aboutRouter);
 
 const PORT = 3000;
 
