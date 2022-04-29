@@ -1,8 +1,9 @@
-const routeList = document.querySelector('.route-list');
 const commentButton = document.querySelector('#commentButton');
+const routeList = document.querySelector('.list-group');
 
 routeList.addEventListener('click', async (e) => {
-  if (e.target.tagName === 'BUTTON') {
+  console.log(e.target.tagName);
+  if (e.target.tagName === 'H6') {
     const { id } = e.target.dataset;
     // console.log(id);
     const response = await fetch(`/addRoute/${id}`, { method: 'POST' });
@@ -14,6 +15,4 @@ routeList.addEventListener('click', async (e) => {
 
 commentButton.addEventListener('submit', async (event) => {
   event.preventDefault();
-
-  
 });

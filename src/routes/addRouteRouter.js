@@ -9,9 +9,9 @@ router.post('/addRoute/Route', async (req, res) => {
   res.redirect('/');
 });
 
-router.get('/addRoute/Route', (req, res) => {
-  res.json({ a: 'красная площадь', b: 'орджоникидзе 11' });
-});
+// router.get('/addRoute/Route', (req, res) => {
+//   res.json({ a: 'красная площадь', b: 'орджоникидзе 11' });
+// });
 
 router.post('/addRoute/Route', async (req, res) => {
   await Route.create(req.body);
