@@ -60,7 +60,6 @@ footer {
 
 }
 
-
 .info {
   background-color: rgb(168, 204, 245);
   border-radius: 5px;
@@ -98,3 +97,9 @@ justify-content: space-around;
 .commentWord{
   padding: 15px;
 }
+
+.commentPic {
+  border-style:groove
+  width: 20%;
+}
+
