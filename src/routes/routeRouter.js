@@ -3,15 +3,18 @@ const { Route, Comment, User } = require('../../db/models');
 const checkAuth = require('../middlewares/allChecks');
 
 router.get('/route/:id', async (req, res) => {
+
+console.log('adasdasda');
+
   const routeId = req.params.id;
   try {
     const route = await Route.findOne({ where: { id: routeId } });
     const comments = await Comment.findAll({
       where: { route_id: routeId },
-      order: [
-        ['id', 'DESC'],
-      ],
+      raw: true,
     });
+    console.log(comments, 'kolva');
+
     res.render('info', { route, comments });
   } catch (error) {
     console.log(error);
