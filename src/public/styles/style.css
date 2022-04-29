@@ -50,7 +50,7 @@ header {
 
 footer {
   width: 90%;
-  position: fixed;
+  position:relative;
   bottom: 2% !important;
 }
 
