@@ -1,63 +1,40 @@
-function init() {
-  // Задаём точки мультимаршрута.
-  const pointA = 'красная площадь';
-  const pointB = 'тверская 7';
+let myMap;
 
-  /**
-       * Создаем мультимаршрут.
-       * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
-       */
-  const multiRoute = new ymaps.multiRouter.MultiRoute({
-    referencePoints: [
-      pointA,
-      pointB,
-    ],
-    params: {
-      // Тип маршрутизации - пешеходная маршрутизация.
-      routingMode: 'bicycle',
-    },
-  }, {
-    // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
-    boundsAutoApply: true,
-    // убрать метки над путевыми точками
-    // wayPointVisible: false,
-  });
-  multiRoute.editor.start(
-    // {
-    //   // При включении опции addWayPoints пользователи смогут создавать
-    //     // путевые точки по клику на карте.
-    //     addWayPoints: true,
-    //     // При включении опции removeWayPoints пользователи смогут удалять
-    //     // путевые точки.
-    //     // Для удаления точки нужно дважды кликнуть по ней.
-    //     removeWayPoints: true,
-    // }
-  );
-  // Создаем кнопку.
-  const changePointsButton = new ymaps.control.Button({
-    data: { content: 'Поменять местами точки А и В' },
-    options: { selectOnClick: true },
-  });
+// Дождёмся загрузки API и готовности DOM.
 
-  // Объявляем обработчики для кнопки.
-  changePointsButton.events.add('select', () => {
-    multiRoute.model.setReferencePoints([pointB, pointA]);
-  });
+function createMap(a, b) {
+  // eslint-disable-next-line prefer-arrow-callback
+  ymaps.ready(function () {
+    myMap?.destroy();
+    myMap = null;
+    // Создание экземпляра карты и его привязка к контейнеру с
+    // заданным id ("map").
+    myMap = new ymaps.Map('map', {
+      // При инициализации карты обязательно нужно указать
+      // её центр и коэффициент масштабирования.
+      center: [55.76, 37.64], // Москва
+      zoom: 10,
+      controls: ['zoomControl', 'searchControl', 'typeSelector', 'fullscreenControl', 'routeButtonControl'],
+    }, {
+      searchControlProvider: 'yandex#search',
+    });
 
-  changePointsButton.events.add('deselect', () => {
-    multiRoute.model.setReferencePoints([pointA, pointB]);
-  });
+    const multiRoute = new ymaps.multiRouter.MultiRoute({
+      referencePoints: [
+        a,
+        b,
+      ],
+      params: {
+        // Тип маршрутизации - пешеходная маршрутизация.
+        routingMode: 'bicycle',
+      },
+    }, {
+      // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
+      boundsAutoApply: true,
+    });
 
-  // Создаем карту с добавленной на нее кнопкой.
-  const myMap = new ymaps.Map('map', {
-    center: [55.739625, 37.54120],
-    zoom: 12,
-    controls: ['zoomControl', 'searchControl', 'typeSelector', 'fullscreenControl', 'routeButtonControl'], // ['smallMapDefaultSet']
-  }, {
-    buttonMaxWidth: 300,
+    myMap.geoObjects.add(multiRoute);
   });
-  // Добавляем мультимаршрут на карту.
-  myMap.geoObjects.add(multiRoute);
 }
-
-ymaps.ready(init);
+// createMap([55.76, 37.64], [55.76, 37.69]);
+createMap();
