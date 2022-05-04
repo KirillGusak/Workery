@@ -11,6 +11,7 @@ const addRouter = require('./src/routes/addRouteRouter');
 const regRouter = require('./src/routes/registration');
 const routeRouter = require('./src/routes/routeRouter');
 const aboutRouter = require('./src/routes/aboutRouter');
+const deleteRouter = require('./src/routes/deleteRoute');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/', addRouter);
 app.use('/', regRouter);
 app.use('/', routeRouter);
 app.use('/', aboutRouter);
+app.use('/', deleteRouter);
 
 const PORT = 3000;
 

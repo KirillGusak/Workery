@@ -16,7 +16,7 @@ router.post('/signup', async (req, res) => {
       defaults: { email, name, password: hash },
     });
     if (!created) {
-      res.redirect(('signin'));
+      res.redirect('signin');
     } else {
       req.session.userId = user.id;
       req.session.email = user.email;
@@ -34,7 +34,6 @@ router.get('/signin', (req, res) => {
 });
 router.post('/signin', async (req, res) => {
   try {
-    console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
     const passwordMatch = await bcrypt.compare(password, user?.password);
@@ -53,26 +52,22 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/profile', checkAuth, async (req, res) => {
-  const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
-
-  console.log(req.session.id, 'eeeeeeeeeee');
-  console.log(allRoutes, 'nooooo');
+  const allRoutes = await Route.findAll({
+    where: { author: req.session.userId },
+  });
 
   res.render('profile', {
-    email: req.session.email, name: req.session.name, id: req.session.userId, allRoutes,
+    email: req.session.email,
+    name: req.session.name,
+    id: req.session.userId,
+    allRoutes,
   });
 });
 
 router.get('/logout', (req, res) => {
-  console.log('qweqweqweqwe');
-
   req.session.destroy();
   res.clearCookie('sid');
   res.redirect('/');
 });
-
-
-
-
 
 module.exports = router;
