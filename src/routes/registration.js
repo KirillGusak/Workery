@@ -55,8 +55,8 @@ router.post('/signin', async (req, res) => {
 router.get('/profile', checkAuth, async (req, res) => {
   const allRoutes = await Route.findAll({ where: { author: req.session.userId } });
 
-  console.log(req.session.id, 'eeeeeeeeeee');
-  console.log(allRoutes, 'nooooo');
+  // console.log(req.session.id, 'eeeeeeeeeee');
+  // console.log(allRoutes, 'nooooo');
 
   res.render('profile', {
     email: req.session.email, name: req.session.name, id: req.session.userId, allRoutes,
@@ -70,9 +70,5 @@ router.get('/logout', (req, res) => {
   res.clearCookie('sid');
   res.redirect('/');
 });
-
-
-
-
 
 module.exports = router;
