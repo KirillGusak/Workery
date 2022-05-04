@@ -107,3 +107,13 @@ footer {
 [class*='copyrights-pane'] {
   display: none !important;
 }
+
+.likeBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 8px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #cde3ff;
+  border-width: 1px;
+}

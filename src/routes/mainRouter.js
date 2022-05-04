@@ -31,15 +31,14 @@ router.post('/main', async (req, res) => {
   }
 });
 
-router.post('/:id/vote', async (req, res) => {
+router.post('/like', async (req, res) => {
   try {
-    const findPost = await Route.findOne({ where: { id: req.params.id } });
-    const addedLike = await findPost.increment('votes', { by: 1 });
-
+    const { id } = req.body;
+    const findPost = await Route.findOne({ where: { id } });
+    const addedLike = await findPost.increment('rating', { by: 1 });
     res.json({ addedLike });
-    // res.redirect('/posts');
   } catch (error) {
-    console.log('errrrrrrror');
+    console.log(error);
   }
 });
 

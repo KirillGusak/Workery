@@ -61,4 +61,4 @@ sortBtn.addEventListener('click', async (e) => {
   }
 });
 
-console.log(sortBtn);
+// console.log(sortBtn);
