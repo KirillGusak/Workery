@@ -35,12 +35,41 @@
 //   }
 // });
 
-const forLike = document.querySelector('.forLike');
+// const forLike = document.querySelector('.forLike');
+// // console.log(forLike);
 
-forLike.addEventListener('click', async (event) => {
+// forLike.addEventListener('click', async (event) => {
+//   if (event.target.name === 'like') {
+//     const { id } = event.target.dataset;
+//     console.log(id, 'wwww');
+//     const response = await fetch('/like', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ id }),
+//     });
+
+//     if (response.ok) {
+//       const result = await response.json();
+//       // console.log(result.addedLike.rating, 'rrrrr');
+//       const likesCount = document.querySelector('.likesCount');
+//       likesCount.innerText = `${result.addedLike.rating} likes`;
+//       event.target.style = 'background-color: green';
+//     }
+//   }
+// });
+
+const likesCount = document.querySelectorAll('.likesCount');
+// console.log(likesCount);
+
+cards.addEventListener('click', async (event) => {
+  // console.log(typeof likesCount);
   if (event.target.name === 'like') {
+    // console.log(event.currentTarget + 'aaaaaaaaaaaaaaaa');
+    // console.log(event.target);
     const { id } = event.target.dataset;
-    console.log(id, 'wwww');
+    // console.log(id, 'wwww');
     const response = await fetch('/like', {
       method: 'POST',
       headers: {
@@ -48,13 +77,21 @@ forLike.addEventListener('click', async (event) => {
       },
       body: JSON.stringify({ id }),
     });
-
     if (response.ok) {
       const result = await response.json();
-      // console.log(result.addedLike.rating, 'rrrrr');
-      const likesCount = document.querySelector('.likesCount');
-      likesCount.innerText = `${result.addedLike.rating} likes`;
-      event.target.style = 'background-color: green';
+      for (let i = 0; i < likesCount.length; i++) {
+        // console.log(result);
+        // console.log(likesCount[i].dataset.id);
+        // console.log(result.addedLike.id);
+        // console.log(result.addedLike.rating, 'rrrrr');
+        // console.log(likesCount[i]);
+        if (likesCount[i].dataset.id === id) {
+          likesCount[i].innerHTML = `
+          <small class='opacity-50 text-nowrap'>${result.addedLike.rating}
+                        likes</small>`;
+          event.target.style = 'background-color: green';
+        }
+      }
     }
   }
 });
