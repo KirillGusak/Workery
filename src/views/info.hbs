@@ -11,9 +11,10 @@
       <h3>Description: <b>{{this.route.description}}</b></h3>
     </div>
 
-    <div id='map' class='mapForRouteInfo'></div>
+    <div id='map' data-id="{{this.route.id}}" class='mapForRouteInfo'></div>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
     <script src="/application/map.js"></script>
+    <script src="/application/info.js"></script>
 
   </div>
 </div>

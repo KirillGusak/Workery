@@ -30,11 +30,12 @@ app.use(
     saveUninitialized: false,
     name: 'sid',
     cookie: { httpOnly: true },
-  })
+  }),
 );
 
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;
+  res.locals.name = req.session?.name;
   next();
 });
 
