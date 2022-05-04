@@ -1,35 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class='container'>
+
+  <div class='row'>
+    <div class='col'>
       <h2>Hi, {{name}}!</h2>
 
-      <h1 class="lirofile">Profile</h1>
-<div class="info">
+      <h1 class='lirofile'>Profile</h1>
+      <div class='info'>
 
-<h3>User name: {{name}}</h3>
-<h3>User email: {{email}}</h3>
-<h3 >User id: 0000{{id}}</h3>
+        <h3>User name: {{name}}</h3>
+        <h3>User email: {{email}}</h3>
+        <h3>User id: 0000{{id}}</h3>
 
+      </div>
+    </div>
+  </div>
+  <a href='http://localhost:3000/addroute'>
+    <button class='m-3 btn btn-primary'>Add new route</button>
+  </a>
+  <h3 class='createdRoutes'>Your created routes</h3>
 
-</div>
-</div>
- </div>
-<h3 class="createdRoutes">Your created routes</h3>
+  <div class='allRoutes'>
+    <script src='/application/deleteCreatedRoute.js'></script>
+    {{#each allRoutes}}
+      <div class='createdRoutelirofile'>
+        <h3>{{this.title}}</h3>
+        <li class='textlirofile'>City: {{this.city}}</li>
+        <li class='textlirofile'>Length: {{this.length}}</li>
+        <li class='textlirofile'>Rating: {{this.rating}}</li>
+        <li class='textlirofile'>Description: {{this.descrilition}}</li>
+        <li class='textlirofile'>Author's id: 0000{{this.author}}</li>
 
-
-<div class="allRoutes">
-{{#each allRoutes}}
-<div class="createdRoutelirofile">
-<h3>{{this.title}}</h3>
-<li class="textlirofile">City: {{this.city}}</li>
-<li class="textlirofile">Length: {{this.length}}</li>
-<li class="textlirofile">Rating: {{this.rating}}</li>
-<li class="textlirofile">Description: {{this.descrilition}}</li>
-<li class="textlirofile">Author's id: 0000{{this.author}}</li>
-<a href="http://localhost:3000/addroute">
-<button  class="btn btn-primary">Add new route</button>
-</a>
-<button data-id='{{this.id}}' class="buttonToDelete btn btn-primary">Delete route</button>
-</div>
-{{/each}}
+        <button
+          type='submit'
+          data-id='{{this.id}}'
+          class='mt-2 btn btn-primary'
+        >Delete route</button>
+      </div>
+    {{/each}}
+  </div>
 </div>

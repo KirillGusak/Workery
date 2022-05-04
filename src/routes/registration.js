@@ -20,7 +20,7 @@ router.post('/signup', async (req, res) => {
     } else {
       req.session.userId = user.id;
       req.session.email = user.email;
-      req.session.email = user.name;
+      req.session.name = user.name;
       res.redirect('profile');
     }
   } catch (error) {
@@ -57,8 +57,8 @@ router.get('/profile', checkAuth, async (req, res) => {
   });
 
   res.render('profile', {
-    email: req.session.email,
     name: req.session.name,
+    email: req.session.email,
     id: req.session.userId,
     allRoutes,
   });
