@@ -31,4 +31,16 @@ router.post('/main', async (req, res) => {
   }
 });
 
+router.post('/:id/vote', async (req, res) => {
+  try {
+    const findPost = await Route.findOne({ where: { id: req.params.id } });
+    const addedLike = await findPost.increment('votes', { by: 1 });
+
+    res.json({ addedLike });
+    // res.redirect('/posts');
+  } catch (error) {
+    console.log('errrrrrrror');
+  }
+});
+
 module.exports = router;
