@@ -24,7 +24,7 @@ routeList.addEventListener('click', async (e) => {
 function addSort(arr) {
   let result = '';
   for (let i = 0; i < arr.length; i++) {
-    result += (`<div class="cards">
+    result += `<div class="cards">
     <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
   
         <img name="like" id="like" src="/pictures/logo/like1btn.png" alt="like" width="32" height="32"
@@ -36,13 +36,13 @@ function addSort(arr) {
             <p class="mb-0 opacity-75">Start: ${arr[i].start}<span style="padding-left: 30px">Finish: ${arr[i].end}
               </span> </p>
             <p class="mb-0 opacity-75">${arr[i].description}</p>
-             <p><a href="http://localhost:3000/addRoute/{{id}}">See more</a></p>
+             <p><a href="http://localhost:3000/Route/${arr[i].id}">See more</a></p>
           </div>
           
           <small class="opacity-50 text-nowrap">${arr[i].rating} likes</small>
         </div>
       </div>
-    </div>`);
+    </div>`;
   }
   return result;
 }
