@@ -5,29 +5,29 @@ router.get('/addRoute', (req, res) => {
   res.render('addRoute');
 });
 router.post('/addRoute/Route', async (req, res) => {
-  await Route.create(req.body);
-  res.redirect('/');
-});
+  const { title, city, description, start, end, rating } = req.body;
 
-// router.get('/addRoute/Route', (req, res) => {
-//   res.json({ a: 'красная площадь', b: 'орджоникидзе 11' });
-// });
-
-router.post('/addRoute/Route', async (req, res) => {
-  await Route.create(req.body);
+  await Route.create({
+    title,
+    city,
+    description,
+    start,
+    end,
+    rating,
+    author: req.session.userId,
+  });
   res.redirect('/');
 });
 
 router.post('/addRoute/:id', async (req, res) => {
   const route = await Route.findOne({ where: { id: req.params.id } });
-  // console.log(route);
-  //   res.render('info', { route });
+
   res.json(route);
 });
 
 router.get('/addRoute/:id/', async (req, res) => {
   const route = await Route.findOne({ where: { id: req.params.id } });
-  console.log(route);
+
   res.render('info', { route });
 });
 

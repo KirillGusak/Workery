@@ -7,7 +7,6 @@ commentForm.addEventListener('submit', async (event) => {
 
   const inputedText = document.querySelector('[data-inputtype]');
   const route_id = inputedText.dataset.inputtype;
-  console.log('eewerggg');
   const response = await fetch(`/route/${route_id}`, {
     method: 'POST',
     headers: {
@@ -16,12 +15,8 @@ commentForm.addEventListener('submit', async (event) => {
     body: JSON.stringify({ body: inputedText.value, route_id }),
   });
 
-  console.log(response, 'ddd');
-
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'dadadada');
-
     commentContainer.innerHTML += createComment(data);
     toClear.value = '';
   }
