@@ -21,14 +21,16 @@ app.use(express.static(path.join(__dirname, 'src', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
-  secret: 'how are you',
-  resave: false,
-  store: new FileStore(),
-  saveUninitialized: false,
-  name: 'sid',
-  cookie: { httpOnly: true },
-}));
+app.use(
+  session({
+    secret: 'how are you',
+    resave: false,
+    store: new FileStore(),
+    saveUninitialized: false,
+    name: 'sid',
+    cookie: { httpOnly: true },
+  })
+);
 
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;
