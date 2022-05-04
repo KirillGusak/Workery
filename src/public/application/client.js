@@ -5,18 +5,18 @@ const routeList = document.querySelector('body');
 const sortBtn = document.querySelector('.form-check');
 const cards = document.querySelector('.cards');
 const father = document.querySelector('.father');
-
+const input = document.querySelector('.form-check-input');
+// console.log(input.checked);
 // console.log(routeList);
 
 routeList.addEventListener('click', async (e) => {
-  console.log(e.target.tagName);
+  // console.log(e.target.tagName);
   if (e.target.tagName === 'H6') {
     const { id } = e.target.dataset;
     // console.log(id);
     const response = await fetch(`/addRoute/${id}`, { method: 'POST' });
     const route = await response.json();
-
-    console.log(route.start, route.end);
+    // console.log(route.start, route.end);
     createMap(route.start, route.end);
   }
 });
@@ -48,11 +48,17 @@ function addSort(arr) {
 }
 
 sortBtn.addEventListener('click', async (e) => {
-  // e.preventDefault();
-  const response = await fetch('/main', { method: 'POST' });
-  console.log(response);
-  const jsonresponse = await response.json();
-  console.log(jsonresponse);
-  cards.remove();
-  father.innerHTML = addSort(jsonresponse.routes);
+  if (input.checked) {
+    const response = await fetch('/main', { method: 'POST' });
+    // console.log(response);
+    const jsonresponse = await response.json();
+    // console.log(jsonresponse);
+    cards.remove();
+    father.innerHTML = addSort(jsonresponse.routes);
+  } else {
+    cards.remove();
+    father.innerHTML = cards.innerHTML;
+  }
 });
+
+console.log(sortBtn);
