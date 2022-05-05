@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Route } = require('../../db/models');
+const checkAuth = require('../middlewares/allChecks');
 
 router.get('/main', async (req, res) => {
   let routes;
@@ -31,7 +32,7 @@ router.post('/main', async (req, res) => {
   }
 });
 
-router.post('/like', async (req, res) => {
+router.post('/like', checkAuth, async (req, res) => {
   try {
     const { id } = req.body;
     const findPost = await Route.findOne({ where: { id } });

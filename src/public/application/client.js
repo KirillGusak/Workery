@@ -26,10 +26,10 @@ routeList.addEventListener('click', async (e) => {
 //   for (let i = 0; i < arr.length; i++) {
 //     result += `<div class="cards">
 //     <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
-  
+
 //         <img name="like" id="like" src="/pictures/logo/like1btn.png" alt="like" width="32" height="32"
 //           class="rounded-circle flex-shrink-0">
-  
+
 //         <div class="d-flex gap-2 w-100 justify-content-between">
 //           <div>
 //       <h6 class="mb-0" data-id="${arr[i].id}" style="cursor:pointer">${arr[i].title}</h6>
@@ -38,7 +38,7 @@ routeList.addEventListener('click', async (e) => {
 //             <p class="mb-0 opacity-75">${arr[i].description}</p>
 //              <p><a href="http://localhost:3000/Route/${arr[i].id}">See more</a></p>
 //           </div>
-          
+
 //           <small class="opacity-50 text-nowrap">${arr[i].rating} likes</small>
 //         </div>
 //       </div>
@@ -66,7 +66,7 @@ function addSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     result += `<div class='list-group-item list-group-item-action d-flex gap-3 py-3'>
               <div class='forLike d-flex gap-2 w-100 justify-content-between'>
-                <button class='likeBtn' data-id='${arr[i].id}' name='like' type='submit'>like</button>
+                <button id="heart" class='far fa-heart likeBtn' data-id='${arr[i].id}' name='like' type='submit'></button>
 
                 <div>
                   <h6 class='mb-0' data-id='${arr[i].id}' style='cursor:pointer'>${arr[i].title}</h6>
@@ -76,7 +76,7 @@ function addSort(arr) {
                     </span>
                   </p>
                   <p class='mb-0 opacity-75'>${arr[i].description}</p>
-                  <p><a href='http://localhost:3000/route/{{id}}'>See more</a></p>
+                  <p><a href='http://localhost:3000/route/${arr[i].id}'>See more</a></p>
                 </div>
                 <div class="likesCount" data-id='${arr[i].id}'>
                   <small class='opacity-50 text-nowrap'>${arr[i].rating}

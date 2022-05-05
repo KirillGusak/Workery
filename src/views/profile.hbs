@@ -4,8 +4,8 @@
     <div class='col'>
       <h2>Hi, {{name}}!</h2>
 
-      <h1 class="lirofile">Profile</h1>
-      <div class="info">
+      <h1 class='lirofile'>Profile</h1>
+      <div class='info'>
 
         <h3>User name: {{name}}</h3>
         <h3>User email: {{email}}</h3>
@@ -22,19 +22,25 @@
   <div class='allRoutes'>
     <script src='/application/deleteCreatedRoute.js'></script>
     {{#each allRoutes}}
+
       <div class='createdRoutelirofile'>
         <h3>{{this.title}}</h3>
         <li class='textlirofile'>City: {{this.city}}</li>
         <li class='textlirofile'>Length: {{this.length}}</li>
         <li class='textlirofile'>Rating: {{this.rating}}</li>
-        <li class='textlirofile'>Description: {{this.descrilition}}</li>
+        <li class='textlirofile'>Description: {{this.description}}</li>
         <li class='textlirofile'>Author's id: 0000{{this.author}}</li>
-
+       
         <button
           type='submit'
           data-id='{{this.id}}'
+          id='deleteBtn'
           class='mt-2 btn btn-primary'
         >Delete route</button>
+        <p><a
+            class='mt-2 btn btn-primary'
+            href='http://localhost:3000/Route/{{this.id}}'
+          >See more</a></p>
       </div>
     {{/each}}
   </div>

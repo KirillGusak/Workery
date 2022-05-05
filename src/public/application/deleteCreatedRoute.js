@@ -4,7 +4,7 @@ const createdRoutelirofile = document.querySelector('.createdRoutelirofile');
 console.log(allRoutes);
 
 allRoutes.addEventListener('click', async (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   const { id } = event.target.dataset;
   const res = await fetch('/deleteRoute', {
     method: 'delete',
@@ -14,6 +14,5 @@ allRoutes.addEventListener('click', async (event) => {
     body: JSON.stringify({ id }),
   });
 
-  // const result = await res.json();
-  // console.log(result, "eeeee");
+  window.location = '/profile';
 });
