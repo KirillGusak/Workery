@@ -1,2 +1,2 @@
 # Bicycle_route_sharing_project
-МЫ ВСЕ СМОЖЕМ!!!
+We help people to find beatuful bicycle routes all over the World.

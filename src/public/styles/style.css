@@ -5,7 +5,7 @@ body {
 
 header {
   height: fit-content;
-  background-color: #0C73FE;
+  background-color: #0c73fe;
   color: #ffff;
 }
 
@@ -14,7 +14,7 @@ header {
 }
 
 .btn-primary {
-  border-color: white
+  border-color: white;
 }
 
 /* .form-signin {
@@ -36,13 +36,13 @@ header {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[type='email'] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signin input[type='password'] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -57,7 +57,6 @@ footer {
 .map {
   width: 600px;
   height: 600px;
-
 }
 
 .info {
@@ -72,10 +71,11 @@ footer {
 }
 
 .createdRoutelirofile {
-  background-color: rgb(51, 250, 250);
+  background-color: rgb(74, 235, 235);
   border-radius: 8px;
   padding: 10px;
   width: 70%;
+  margin: 10px;
 }
 
 .textlirofile {
@@ -104,7 +104,38 @@ footer {
   margin: 0;
 }
 
-
-[class*="copyrights-pane"] {
+[class*='copyrights-pane'] {
   display: none !important;
+}
+
+.likeBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 8px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  border-width: 1px;
+}
+
+#heart {
+  font-size: 10px;
+}
+#heart:hover {
+  color: red;
+}
+
+#deleteBtn {
+  background-color: red;
+}
+
+.cards {
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.commentContainer {
+  overflow-y: auto;
+  max-height: 300px;
 }

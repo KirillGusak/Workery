@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Route } = require('../../db/models');
+const checkAuth = require('../middlewares/allChecks');
 
 router.get('/main', async (req, res) => {
   let routes;
@@ -18,18 +19,38 @@ router.get('/main', async (req, res) => {
 
 router.post('/main', async (req, res) => {
   let routes;
-  console.log('hey');
   try {
     routes = await Route.findAll({
       order: [['rating', 'desc']],
     });
-    console.log('12312312', routes);
     return res.json({ routes });
   } catch (error) {
     return res.render('error', {
       message: 'Не удалось получить записи из базы данных.',
       error: {},
     });
+  }
+});
+
+router.post('/like', checkAuth, async (req, res) => {
+  try {
+    const { id } = req.body;
+    const findPost = await Route.findOne({ where: { id } });
+    const addedLike = await findPost.increment('rating', { by: 1 });
+    res.json({ addedLike });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post('/likesOnPage', checkAuth, async (req, res) => {
+  try {
+    const { id } = req.body;
+    const findPost = await Route.findOne({ where: { id } });
+    const addedLike = await findPost.increment('rating', { by: 1 });
+    res.json({ addedLike });
+  } catch (error) {
+    console.log(error);
   }
 });
 

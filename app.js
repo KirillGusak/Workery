@@ -11,6 +11,7 @@ const addRouter = require('./src/routes/addRouteRouter');
 const regRouter = require('./src/routes/registration');
 const routeRouter = require('./src/routes/routeRouter');
 const aboutRouter = require('./src/routes/aboutRouter');
+const deleteRouter = require('./src/routes/deleteRoute');
 
 const app = express();
 
@@ -21,17 +22,20 @@ app.use(express.static(path.join(__dirname, 'src', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
-  secret: 'how are you',
-  resave: false,
-  store: new FileStore(),
-  saveUninitialized: false,
-  name: 'sid',
-  cookie: { httpOnly: true },
-}));
+app.use(
+  session({
+    secret: 'how are you',
+    resave: false,
+    store: new FileStore(),
+    saveUninitialized: false,
+    name: 'sid',
+    cookie: { httpOnly: true },
+  }),
+);
 
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;
+  res.locals.name = req.session?.name;
   next();
 });
 
@@ -41,6 +45,7 @@ app.use('/', addRouter);
 app.use('/', regRouter);
 app.use('/', routeRouter);
 app.use('/', aboutRouter);
+app.use('/', deleteRouter);
 
 const PORT = 3000;
 

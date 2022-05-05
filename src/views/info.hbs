@@ -1,81 +1,95 @@
-<div class="container">
-  <div class="routeMapInfo">
-    <div class="infoAboutRoute">
-      <h1><b>{{this.route.title}}</b></h1>
-      <h3>City: <b>{{this.route.city}}</b></h3>
-      <h3>Description: <b>{{this.route.description}}</b></h3>
-      <h3>Start point: <b>{{this.route.start}}</b></h3>
-      <h3>End point: <b>{{this.route.end}}</b></h3>
-      <h3>Author's id: <b>{{this.route.author}}</b></h3>
-      <h3>Rating: <b>{{this.route.rating}}</b></h3>
-      <h3>Length: <b>{{this.route.length}}</b></h3>
+<div class="greatContainer" data-id="{{this.route.id}}">
+  <div class="container">
+    <div class="routeMapInfo">
+      <div class="infoAboutRoute">
+        <h1><b>{{this.route.title}}</b></h1>
+        <h3>City: <b>{{this.route.city}}</b></h3>
+        <h3>Start point: <b>{{this.route.start}}</b></h3>
+        <h3>End point: <b>{{this.route.end}}</b></h3>
+        <h3>Author's id: <b>{{this.route.author}}</b></h3>
+        <h3>Rating: <b>{{this.route.rating}}</b></h3>
+        <h3>Length: <b>{{this.route.length}}</b></h3>
+        <h3>Description: <b>{{this.route.description}}</b></h3>
+                        <button id="heart" class='far fa-heart likeBtn' data-id='{{this.route.id}}' name='like' type='submit'></button>
+                        <div class="likesCount" data-id='{{this.route.id}}'>
+                  <small class='opacity-50 text-nowrap'>{{this.route.rating}}
+                    likes</small>
+                </div>
+
+      </div>
+
+      <div id='map' class='mapForRouteInfo'></div>
+      <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
+      <script src="/application/map.js"></script>
+      <script defer src="/application/info.js"></script>
+      <script defer src='/application/likesOnPage.js'></script>
+
     </div>
-
-    <div id='map' class='mapForRouteInfo'></div>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=75ff8d8f-55b5-40d7-afee-fd53548eedff&lang=ru_RU"></script>
-    <script src="/application/map.js"></script>
-
   </div>
-</div>
-  <h2 class="commentWord">Comments</h2>
-<div class="row">
-<div class="col">
-      <div class="list-group">
- <div class="commentContainer">
-       <div class="commentContainer">
-        {{#each comments}}
-        <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
 
-          <img name="like" id="like" src="/pictures/logo/programmer.png" alt="like" width="32" height="32"
-            class="rounded-circle flex-shrink-0">
-<p>{{this.user_id}}</p>
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <p class="mb-0 opacity-75">{{this.body}}<span style="padding-left: 30px"> 
-                </span> </p>
-        
+  <h2 class="commentWord">Comments</h2>
+
+
+  <div class="row">
+    <div class="col">
+      <div class="list-group">
+        <div class="commentContainer">
+          <div class="commentContainer">
+            {{#each comments}}
+            <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+
+              <img name="like" id="like" src="/pictures/logo/programmer.png" alt="like" width="32" height="32"
+                class="rounded-circle flex-shrink-0">
+              <p>{{this.user_id}}</p>
+              <div class="d-flex gap-2 w-100 justify-content-between">
+                <div>
+                  <p class="m-3 mb-0 opacity-75">{{this.body}}<span style="padding-left: 30px">
+                    </span> </p>
+
+                </div>
+
+              </div>
             </div>
-            
+            {{/each}}
           </div>
         </div>
-        {{/each}}
-        </div>
-        </div>
-         </div>
       </div>
-          <div class="col"></div>
     </div>
-
-
-
-
-
-{{!-- 
-<div>
-  <h2 class="commentWord">Comments</h2>
-  <div class="comments">
-    {{#each comments}}
-    <div>
-     <div class="userPic"> {{this.user_id}}</div> <div class="commentPic">hey{{this.body}}</div>
+    <div class="col"></div>
   </div>
-    {{/each}}
-  </div> --}}
 
-  {{!-- <h6 class="mb-0" data-id="{{this.route.id}}" style="cursor:pointer">{{this.route.title}}</h6> --}}
 
-  <form name="commentForm">
-    <div class="row">
-      <div class="col">
-        <div class="m-3 mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
 
-          <input  placeholder="share your experience!" data-inputtype='{{this.route.id}}' class="form-control toClear" id="exampleFormControlTextarea1"
-            rows="3"></input>
-        </div>
+
+
+  {{!--
+  <div>
+    <h2 class="commentWord">Comments</h2>
+    <div class="comments">
+      {{#each comments}}
+      <div>
+        <div class="userPic"> {{this.user_id}}</div>
+        <div class="commentPic">hey{{this.body}}</div>
       </div>
-      <div class="col"></div>
-    </div>
-    <button id="commentButton" name="commentButton" type="sumbit" class="m-3 btn btn-info">add comment</button>
+      {{/each}}
+    </div> --}}
+
+    {{!-- <h6 class="mb-0" data-id="{{this.route.id}}" style="cursor:pointer">{{this.route.title}}</h6> --}}
+
+    <form name="commentForm">
+      <div class="row">
+        <div class="col">
+          <div class="m-3 mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
+
+            <input placeholder="share your experience!" data-inputtype='{{this.route.id}}' class="form-control toClear"
+              id="exampleFormControlTextarea1" rows="3"></input>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+      <button id="commentButton" name="commentButton" type="sumbit" class="m-3 btn btn-info">add comment</button>
+  </div>
+  </form>
 </div>
-</form>
 <script src="/application/comment.js"></script>
