@@ -43,4 +43,15 @@ router.post('/like', checkAuth, async (req, res) => {
   }
 });
 
+router.post('/likesOnPage', checkAuth, async (req, res) => {
+  try {
+    const { id } = req.body;
+    const findPost = await Route.findOne({ where: { id } });
+    const addedLike = await findPost.increment('rating', { by: 1 });
+    res.json({ addedLike });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
