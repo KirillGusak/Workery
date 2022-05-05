@@ -113,7 +113,19 @@ footer {
   height: 30px;
   border-radius: 50%;
   font-size: 8px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #cde3ff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
   border-width: 1px;
+}
+
+#heart {
+  font-size: 10px;
+}
+#heart:hover {
+  color: red;
+}
+
+#deleteBtn {
+  background-color: red;
 }

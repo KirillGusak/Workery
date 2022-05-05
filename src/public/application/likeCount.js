@@ -61,12 +61,13 @@
 // });
 
 const likesCount = document.querySelectorAll('.likesCount');
-// console.log(likesCount);
+const infoAboutRoute = document.querySelector('.infoAboutRoute');
+console.log(infoAboutRoute, 'oookko');
 
-cards.addEventListener('click', async (event) => {
-  // console.log(typeof likesCount);
+father.addEventListener('click', async (event) => {
+  // console.log(typeof likesCount, );
   if (event.target.name === 'like') {
-    // console.log(event.currentTarget + 'aaaaaaaaaaaaaaaa');
+    console.log(`${event.currentTarget}aaaaaaaaaaaaaaaa`);
     // console.log(event.target);
     const { id } = event.target.dataset;
     // console.log(id, 'wwww');
@@ -89,7 +90,40 @@ cards.addEventListener('click', async (event) => {
           likesCount[i].innerHTML = `
           <small class='opacity-50 text-nowrap'>${result.addedLike.rating}
                         likes</small>`;
-          event.target.style = 'background-color: green';
+          event.target.style = 'background-color: red; color: white';
+        }
+      }
+    }
+  }
+});
+
+infoAboutRoute.addEventListener('click', async (event) => {
+  // console.log(infoAboutRoute, 'oookko' );
+  if (event.target.name === 'like') {
+    // console.log(`${event.currentTarget}aaaaaaaaaaaaaaaa`);
+    // console.log(event.target);
+    const { id } = event.target.dataset;
+    // console.log(id, 'wwww');
+    const response = await fetch('/like', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    });
+    if (response.ok) {
+      const result = await response.json();
+      for (let i = 0; i < likesCount.length; i++) {
+        // console.log(result);
+        // console.log(likesCount[i].dataset.id);
+        // console.log(result.addedLike.id);
+        // console.log(result.addedLike.rating, 'rrrrr');
+        // console.log(likesCount[i]);
+        if (likesCount[i].dataset.id === id) {
+          likesCount[i].innerHTML = `
+          <small class='opacity-50 text-nowrap'>${result.addedLike.rating}
+                        likes</small>`;
+          event.target.style = 'background-color: red; color: white';
         }
       }
     }

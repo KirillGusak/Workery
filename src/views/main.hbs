@@ -24,7 +24,7 @@
             {{#each routes}}
             <div class='list-group-item list-group-item-action d-flex gap-3 py-3'>
               <div class='forLike d-flex gap-2 w-100 justify-content-between'>
-                <button class='likeBtn' data-id='{{this.id}}' name='like' type='submit'>like</button>
+                <button id="heart" class='far fa-heart likeBtn' data-id='{{this.id}}' name='like' type='submit'></button>
                 <div>
                   <h6 class='mb-0' data-id='{{this.id}}' style='cursor:pointer'>{{this.title}}</h6>
                   <p class='mb-0 opacity-75'>Start:
