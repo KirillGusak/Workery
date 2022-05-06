@@ -129,3 +129,13 @@ footer {
 #deleteBtn {
   background-color: red;
 }
+
+.cards {
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.commentContainer {
+  overflow-y: auto;
+  max-height: 300px;
+}

@@ -1,7 +1,6 @@
 const allRoutes = document.querySelector('.allRoutes');
 const createdRoutelirofile = document.querySelector('.createdRoutelirofile');
 
-console.log(allRoutes);
 
 allRoutes.addEventListener('click', async (event) => {
   // event.preventDefault();
@@ -13,6 +12,9 @@ allRoutes.addEventListener('click', async (event) => {
     },
     body: JSON.stringify({ id }),
   });
+  // window.location = '/profile';
 
-  window.location = '/profile';
+  if (res.status === 200) {
+    document.querySelector(`.card-${id}`).remove();
+  }
 });
