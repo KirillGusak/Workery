@@ -8,7 +8,7 @@ function init() {
   const myMap = new ymaps.Map('map', {
     center: [55.753994, 37.622093],
     zoom: 12,
-    controls: ['routePanelControl'],
+    controls: ['zoomControl', 'typeSelector', 'fullscreenControl', 'routePanelControl'],
   }, {
     searchControlProvider: 'yandex#search',
   });
@@ -22,7 +22,7 @@ function init() {
     // Выключим возможность задавать пункт отправления в поле ввода.
     fromEnabled: true,
     // Адрес или координаты пункта отправления.
-    // from: '',
+    // from: ,
     // Включим возможность задавать пункт назначения в поле ввода.
     toEnabled: true,
     // Адрес или координаты пункта назначения.
