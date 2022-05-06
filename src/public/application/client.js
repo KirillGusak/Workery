@@ -64,7 +64,9 @@ sortBtn.addEventListener('click', async (e) => {
 function addSort(arr) {
   let result = '';
   for (let i = 0; i < arr.length; i++) {
-    result += `<div class='list-group-item list-group-item-action d-flex gap-3 py-3'>
+    result += `
+    <div class='cards'>
+    <div class='list-group-item list-group-item-action d-flex gap-3 py-3'>
               <div class='forLike d-flex gap-2 w-100 justify-content-between'>
                 <button id="heart" class='far fa-heart likeBtn' data-id='${arr[i].id}' name='like' type='submit'></button>
 
@@ -83,6 +85,7 @@ function addSort(arr) {
                     likes</small>
                 </div>
               </div>
+            </div>
             </div>`;
   }
   return result;

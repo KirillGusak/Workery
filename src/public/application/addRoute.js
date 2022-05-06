@@ -1,89 +1,71 @@
 const inputStart = document.getElementsByName('start')[0];
 const inputEnd = document.getElementsByName('end')[0];
-const inputCity = document.getElementsByName('city')[0];
-// console.log(inputStart);
-// console.log(inputEnd);
-
-// inputStart.value = 'braa';
-// inputEnd.value = 'braa';
-// console.log(inputStart.value);
+const inputLength = document.getElementsByName('length')[0];
 
 ymaps.ready(init);
 
 function init() {
-  let myPlacemark;
   const myMap = new ymaps.Map('map', {
     center: [55.753994, 37.622093],
-    zoom: 9,
+    zoom: 12,
+    controls: ['routePanelControl'],
   }, {
     searchControlProvider: 'yandex#search',
   });
 
-  // Слушаем клик на карте.
-  myMap.events.add('click', (e) => {
-    const coords = e.get('coords');
+  const control = myMap.controls.get('routePanelControl');
 
-    // Если метка уже создана – просто передвигаем ее.
-    if (myPlacemark) {
-      myPlacemark.geometry.setCoordinates(coords);
-    }
-    // Если нет – создаем.
-    else {
-      myPlacemark = createPlacemark(coords);
-      myMap.geoObjects.add(myPlacemark);
-      // Слушаем событие окончания перетаскивания на метке.
-      myPlacemark.events.add('dragend', () => {
-        getAddress(myPlacemark.geometry.getCoordinates());
-      });
-    }
-    getAddress(coords);
+  // Зададим состояние панели для построения машрутов.
+  control.routePanel.state.set({
+    // Тип маршрутизации.
+    type: 'bicycle',
+    // Выключим возможность задавать пункт отправления в поле ввода.
+    fromEnabled: true,
+    // Адрес или координаты пункта отправления.
+    // from: '',
+    // Включим возможность задавать пункт назначения в поле ввода.
+    toEnabled: true,
+    // Адрес или координаты пункта назначения.
+    // to: 'Петербург'
   });
 
-  // Создание метки.
-  function createPlacemark(coords) {
-    return new ymaps.Placemark(coords, {
-      iconCaption: 'поиск...',
-    }, {
-      preset: 'islands#violetDotIconWithCaption',
-      draggable: true,
+  // Зададим опции панели для построения машрутов.
+  control.routePanel.options.set({
+    // Запрещаем показ кнопки, позволяющей менять местами начальную и конечную точки маршрута.
+    allowSwitch: false,
+    // Включим определение адреса по координатам клика.
+    reverseGeocoding: true,
+    // Зададим виды маршрутизации, которые будут доступны пользователям для выбора.
+    types: {
+      masstransit: false, pedestrian: false, taxi: false, bicycle: true,
+    },
+  });
+
+  // Получение мультимаршрута.
+  const multiRoutePromise = control.routePanel.getRouteAsync();
+
+  multiRoutePromise.then((multiRoute) => {
+    // Подписка на событие обновления мультимаршрута.
+    multiRoute.model.events.add('requestsuccess', () => {
+      // Получение ссылки на активный маршрут.
+      const activeRoute = multiRoute.getActiveRoute();
+      // Когда панель добавляется на карту, она
+      // создает маршрут с изначально пустой геометрией.
+      // Только когда пользователь выберет начальную и конечную точки,
+      // маршрут будет перестроен с непустой геометрией.
+      // Поэтому для избежания ошибки нужно добавить проверку,
+      // что маршрут не пустой.
+      if (activeRoute) {
+        // Вывод информации об активном маршруте.
+        // console.log(`Длина: ${activeRoute.properties.get('distance').text}`);
+        inputLength.value = `${activeRoute.properties.get('distance').text}`;
+        // console.log(activeRoute);
+        console.log(multiRoute);
+        inputStart.value = multiRoute.properties._data.waypoints[0].address;
+        inputEnd.value = multiRoute.properties._data.waypoints[1].address;
+      }
     });
-  }
-
-  // Определяем адрес по координатам (обратное геокодирование).
-  function getAddress(coords) {
-    myPlacemark.properties.set('iconCaption', 'поиск...');
-    ymaps.geocode(coords).then((res) => {
-      const firstGeoObject = res.geoObjects.get(0);
-      const address = firstGeoObject.getAddressLine();
-
-      myPlacemark.properties
-        .set({
-          // Формируем строку с данными об объекте.
-          iconCaption: [
-            // Название населенного пункта или вышестоящее административно-территориальное образование.
-            firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
-            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
-          ].filter(Boolean).join(', '),
-          // В качестве контента балуна задаем строку с адресом объекта.
-          balloonContent: address,
-        });
-      // myInput.value = address;
-      inputStart.value = address;
-
-      multiRoute = new ymaps.multiRouter.MultiRoute({
-        referencePoints: [
-          address,
-          pointB,
-        ],
-        params: {
-          // Тип маршрутизации - пешеходная маршрутизация.
-          routingMode: 'bicycle',
-        },
-      }, {
-        // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
-        boundsAutoApply: true,
-      });
-    });
-  }
+  }, (err) => {
+    console.log(err);
+  });
 }
