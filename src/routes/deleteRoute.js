@@ -4,8 +4,6 @@ const { Route } = require('../../db/models');
 
 router.delete('/deleteRoute', async (req, res) => {
   const { id } = req.body;
-
-
   try {
     const result = await Route.destroy({ where: { id } });
     res.json(result);

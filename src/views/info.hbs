@@ -76,13 +76,14 @@
 
     {{!-- <h6 class="mb-0" data-id="{{this.route.id}}" style="cursor:pointer">{{this.route.title}}</h6> --}}
 
-    <form name="commentForm">
-      <div class="row">
+    <form name="commentForm" data-inputtype='{{this.route.id}}'>
+      <div class="row"
+       >
+        
         <div class="col">
           <div class="m-3 mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Share your experience with other users</label>
-
-            <input placeholder="share your experience!" data-inputtype='{{this.route.id}}' class="form-control toClear"
+            <input name='textForInput' placeholder="share your experience!" class="form-control toClear"
               id="exampleFormControlTextarea1" rows="3"></input>
           </div>
         </div>

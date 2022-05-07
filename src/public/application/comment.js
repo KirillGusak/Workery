@@ -5,14 +5,17 @@ const toClear = document.querySelector('.toClear');
 commentForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const inputedText = document.querySelector('[data-inputtype]');
-  const route_id = inputedText.dataset.inputtype;
+  // const inputedText = document.querySelector('[data-inputtype]');
+
+  const inputedText = document.getElementsByName('textForInput')[0].value;
+  const route_id = event.target.dataset.inputtype;
+  console.log(route_id, 'hello');
   const response = await fetch(`/route/${route_id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ body: inputedText.value, route_id }),
+    body: JSON.stringify({ body: inputedText, route_id }),
   });
 
   if (response.ok) {
