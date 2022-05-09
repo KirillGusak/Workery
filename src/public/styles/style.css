@@ -54,23 +54,26 @@ footer {
   bottom: 0% !important;
 }
 
-.map{
+.map {
   width: 600px;
   height: 600px;
 
 }
+<<<<<<< HEAD
 [class*= "copyrights-pane"]{
   display: none !important;
 }
+=======
+>>>>>>> e3772f8f5bedebce486bd93cf3c7f3a6780edf0c
 
 .info {
   background-color: rgb(168, 204, 245);
   border-radius: 5px;
   padding: 10px;
-  width:70%;
+  width: 70%;
 }
 
-.createdRoutes{
+.createdRoutes {
   margin-top: 30px;
 }
 
@@ -78,25 +81,36 @@ footer {
   background-color: rgb(51, 250, 250);
   border-radius: 8px;
   padding: 10px;
-  width:70%;
+  width: 70%;
 }
 
 .textlirofile {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
 }
 
-.routeMapInfo{
+.routeMapInfo {
   display: flex;
-flex-direction: row;
-justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.mapForRouteInfo{
+.mapForRouteInfo {
   width: 500px;
   height: 350px;
 }
 
-.commentWord{
+.commentWord {
   padding: 15px;
+}
+
+#family {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+
+[class*="copyrights-pane"] {
+  display: none !important;
 }
